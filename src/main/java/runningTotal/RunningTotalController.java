@@ -1,13 +1,13 @@
-package microArchAddition;
+package runningTotal;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TotalController {
+public class RunningTotalController {
 	
 	@RequestMapping("/calculator/total")
-	public Total total() {
-		return new Total();
+	public RunningTotal runningTotal() {
+		return new RunningTotal();
 	}
 }

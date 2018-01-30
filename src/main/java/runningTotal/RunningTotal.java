@@ -1,10 +1,10 @@
-package microArchAddition;
+package runningTotal;
 
-public class Total {
+public class RunningTotal {
 	
 	private int sum = 3;
 	
-	public Total() {
+	public RunningTotal() {
 		
 	}
 	
