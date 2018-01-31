@@ -10,7 +10,7 @@ import java.util.Properties;
 public class ConsumeOutput {
 
     private final static String TOPIC = "output";
-    private final static String INPUT_SERVERS = "localhost:3181";
+    private final static String BOOTSTRAP_SERVERS = "localhost:2181";
     private static int runningTotal;
 	
     static int consumeOutput() throws InterruptedException {
@@ -49,7 +49,7 @@ public class ConsumeOutput {
     
     private static Consumer<Long, String> createConsumer() {
         final Properties props = new Properties();
-        		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, INPUT_SERVERS);
+        		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "KafkaExampleConsumer");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());

@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 public class ProduceOutput {
 
 	private final static String TOPIC = "input";
-	private final static String BOOTSTRAP_SERVERS = "localhost:3181";
+	private final static String BOOTSTRAP_SERVERS = "localhost:2181";
 	private int runningTotal = 0;
 	
 	public ProduceOutput() {
