@@ -7,9 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class RunningTotalController {
 	
 	@RequestMapping("/calculator/total")
-	public ConsumeOutput runningTotal() {
-		return new ConsumeOutput();
+	public String runningTotal() throws InterruptedException {
+		int total = ConsumeOutput.consumeOutput();
+		return ("Current total is: " + total);
 	}
-	
-	//TODO: consumer for topic: output
 }
