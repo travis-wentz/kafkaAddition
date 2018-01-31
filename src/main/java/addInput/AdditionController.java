@@ -1,4 +1,4 @@
-package addition;
+package addInput;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.LongSerializer;

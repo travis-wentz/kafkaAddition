@@ -1,10 +1,10 @@
 package runningTotal;
 
-public class RunningTotal {
+public class ConsumeOutput {
 	
 	private int sum = 3;
 	
-	public RunningTotal() {
+	public ConsumeOutput() {
 		
 	}
 	

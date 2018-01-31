@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class RunningTotalController {
 	
 	@RequestMapping("/calculator/total")
-	public RunningTotal runningTotal() {
-		return new RunningTotal();
+	public ConsumeOutput runningTotal() {
+		return new ConsumeOutput();
 	}
+	
+	//TODO: consumer for topic: output
 }
