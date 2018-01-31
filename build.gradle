@@ -25,6 +25,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile 'org.apache.kafka:kafka-clients:0.10.2.0'
+    compile 'ch.qos.logback:logback-classic:1.2.2'
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
