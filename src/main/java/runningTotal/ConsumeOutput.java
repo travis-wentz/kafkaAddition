@@ -19,8 +19,7 @@ public class ConsumeOutput {
         int noRecordsCount = 0;
 
         while (true) {
-            final ConsumerRecords<Long, String> consumerRecords =
-                    consumer.poll(1000);
+            final ConsumerRecords<Long, String> consumerRecords = consumer.poll(1000);
 
             if (consumerRecords.count()==0) {
                 noRecordsCount++;
@@ -49,7 +48,7 @@ public class ConsumeOutput {
     
     private static Consumer<Long, String> createConsumer() {
         final Properties props = new Properties();
-        		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
+        	props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "KafkaExampleConsumer");
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, LongDeserializer.class.getName());
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());

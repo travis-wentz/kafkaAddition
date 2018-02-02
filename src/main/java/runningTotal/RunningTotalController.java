@@ -8,7 +8,6 @@ public class RunningTotalController {
 	
 	@RequestMapping("/calculator/total")
 	public String runningTotal() throws InterruptedException {
-		int total = ConsumeOutput.consumeOutput();
-		return ("Current total is: " + total);
+		return ("Current total is: " + ConsumeOutput.consumeOutput());
 	}
 }

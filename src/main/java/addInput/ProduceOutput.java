@@ -8,7 +8,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 public class ProduceOutput {
 
 	private final static String TOPIC = "input";
-	private final static String BOOTSTRAP_SERVERS = "localhost:2181";
+	private final static String BOOTSTRAP_SERVERS = "localhost:9092";
 	private int runningTotal = 0;
 	
 	public ProduceOutput() {
@@ -17,9 +17,6 @@ public class ProduceOutput {
 	
 	protected void addValue(int valueToAdd) throws Exception {
 		runningTotal += valueToAdd;
-		
-		//might have to call this after consumer loop in ConsumeInput
-		runProducer();
 	}
 
 	/**
@@ -27,7 +24,7 @@ public class ProduceOutput {
 	 * @param valueToAdd
 	 * @throws Exception
 	 */
-	private void runProducer() throws Exception {
+	void runOutputProducer() throws Exception {
 		final Producer<Long, String> producer = createProducer();
 		
 		try { //try to create a record and send the record to producer
