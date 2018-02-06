@@ -1,6 +1,7 @@
-package addInput;
+package producer;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * It creates a kafka producer and adds the given value to the current kafka topic.
  */
 @RestController
+@RequestMapping("/calculator/add")
 public class AdditionController {
 	private final static String TOPIC = "input";
 
@@ -19,9 +21,11 @@ public class AdditionController {
 	 * @return final status of runProducer()
 	 * @throws Exception
 	 */
-	@RequestMapping("/calculator/add")
-	public String add(@RequestParam(value = "value", defaultValue = "0") int value) throws Exception {
-		if(ProduceInput.runProducer(value)) { return ("A value of " + value + " was added to " + TOPIC + " topic."); }
-		return "Something went wrong. No value was added.";
+    @RequestMapping(method = RequestMethod.PUT)
+	public String add(@RequestParam(value = "value", defaultValue = "0") String value) throws Exception {
+		Produce producer = new Produce() {{
+			sendMessage("input", value);
+		}};
+		return ("A value of " + value + " was added to " + TOPIC + " topic.");
 	}
 }
